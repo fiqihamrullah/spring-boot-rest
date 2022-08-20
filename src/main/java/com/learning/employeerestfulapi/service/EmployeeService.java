@@ -38,7 +38,8 @@ public class EmployeeService
     }
     
     // UPDATE
-    public Employee updateEmployee(Long empId, Employee employeeDetails) {
+    public Employee updateEmployee(Long empId, Employee employeeDetails)
+    {
             Employee emp = empRepository.findById(empId).get();
             emp.setFirstName(employeeDetails.getFirstName());
             emp.setLastName(employeeDetails.getLastName());
