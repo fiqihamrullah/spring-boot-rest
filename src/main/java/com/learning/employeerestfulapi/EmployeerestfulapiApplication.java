@@ -16,6 +16,7 @@ public class EmployeerestfulapiApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(EmployeerestfulapiApplication.class, args);
+		System.out.println("Perbaharuan Ini Berasal dari Dev2");
 	}
 
 	@Bean
