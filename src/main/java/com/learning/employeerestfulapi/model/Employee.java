@@ -4,12 +4,9 @@
  */
 package com.learning.employeerestfulapi.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
+import javax.persistence.*;
 
 /**
  *
@@ -32,6 +29,11 @@ public class Employee
         
         @Column(name="email_id")
         private String emailId;
+
+        @OneToOne(cascade = CascadeType.ALL)
+        @JoinColumn(name="photo_id")
+        @JsonManagedReference
+        private Photo photo;
 
         public void setFirstName(String firstName) 
         {
@@ -63,15 +65,10 @@ public class Employee
         {
             return emailId;
         }
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+
+
+        public Photo getPhoto()
+        {
+                return photo;
+        }
 }

@@ -6,6 +6,7 @@ package com.learning.employeerestfulapi.service;
 
 import com.learning.employeerestfulapi.model.Employee;
 import com.learning.employeerestfulapi.repository.EmployeeRepository;
+import com.learning.employeerestfulapi.repository.PhotoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,9 +21,12 @@ public class EmployeeService
 {
     
      @Autowired
-     EmployeeRepository empRepository;    
-     
-     // CREATE 
+     EmployeeRepository empRepository;
+
+    @Autowired
+    PhotoRepository jabatanRepository;
+
+    // CREATE
     public Employee createEmployee(Employee emp) {
         return empRepository.save(emp);
     }
@@ -44,6 +48,8 @@ public class EmployeeService
             emp.setFirstName(employeeDetails.getFirstName());
             emp.setLastName(employeeDetails.getLastName());
             emp.setEmailId(employeeDetails.getEmailId());
+
+
 
             return empRepository.save(emp);                                
     }
