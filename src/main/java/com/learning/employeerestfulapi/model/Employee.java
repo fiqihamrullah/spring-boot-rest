@@ -4,9 +4,12 @@
  */
 package com.learning.employeerestfulapi.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
+import java.util.Collection;
+import java.util.List;
 
 /**
  *
@@ -34,6 +37,11 @@ public class Employee
         @JoinColumn(name="photo_id")
         @JsonManagedReference
         private Photo photo;
+
+        @OneToMany(mappedBy = "employee")
+        private List<Pengalaman> listPengalaman;
+
+
 
         public void setFirstName(String firstName) 
         {
@@ -70,5 +78,10 @@ public class Employee
         public Photo getPhoto()
         {
                 return photo;
+        }
+
+        public List<Pengalaman> getListPengalaman()
+        {
+                return listPengalaman;
         }
 }
