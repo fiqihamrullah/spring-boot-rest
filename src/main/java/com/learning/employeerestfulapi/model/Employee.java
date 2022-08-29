@@ -42,6 +42,15 @@ public class Employee
         private List<Pengalaman> listPengalaman;
 
 
+        @ManyToMany(cascade = CascadeType.ALL)
+        @JoinTable(
+                name = "employee_hobby",
+                joinColumns = @JoinColumn(name = "employee_id"),
+                inverseJoinColumns = @JoinColumn(name = "hobby_id")
+        )
+        private Collection<Hobby> hobbies;
+
+
 
         public void setFirstName(String firstName) 
         {
@@ -83,5 +92,9 @@ public class Employee
         public List<Pengalaman> getListPengalaman()
         {
                 return listPengalaman;
+        }
+
+        public Collection<Hobby> getHobbies() {
+                return hobbies;
         }
 }
